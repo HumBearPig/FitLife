@@ -1,29 +1,30 @@
 print("Привет! Я бот FitLife — помогу тебе следить за здоровьем.")
 user_name = input("Привет! Как тебя зовут? ")
 
+# Вы просили вызывать int() сразу от input(), без отдельной
+# переменной. Вот я исправил, но мне не понятно, зачем:
+# из-за этого в случае ошибки нельзя показать, что именно
+# ввёл пользователь.
 while True:
-    age = input("Сколько тебе лет (например, 18)? ")
     try:
-        user_age = int(age)
+        user_age = int(input("Сколько тебе лет (например, 18)? "))
         break
     except ValueError:
-        print(f"'{age}' — это не число. Попробуй ещё раз.")
+        print("Возраст должен быть числом. Попробуй ещё раз.")
 
 while True:
-    weight = input("Введи свой вес в кг (например, 55.5 кг.): ")
     try:
-        user_weight = float(weight)
+        user_weight = float(input("Введи вес в кг (например, 55.5): "))
         break
     except ValueError:
-        print(f"'{weight}' — это не число. Попробуй ещё раз.")
+        print("Вес должен быть числом. Попробуй ещё раз.")
 
 while True:
-    height = input("Введи свой рост в метрах (например, 177 см.): ")
     try:
-        user_height = float(height)
+        user_height = float(input("Введи рост в метрах (например, 1.77): "))
         break
     except ValueError:
-        print(f"'{height}' — это не число. Попробуй ещё раз.")
+        print("Рост должен быть числом. Попробуй ещё раз.")
 
 bmi = user_weight / (user_height**2)
 bmi = round(bmi, 1)
